@@ -51,7 +51,7 @@ window.onload = function init() {
     const ambientLight = new THREE.AmbientLight(0xffffff, 1);
     scene.add(ambientLight);
 
-
+    let bodyMesh;
 
 
     function defaultMoohan(){
@@ -60,9 +60,10 @@ window.onload = function init() {
             currentModel = null;
             modelLoaded = false;
         }
-        loader.load('./model/moohan_T_shirt2.glb', function (gltf) {
+        loader.load('./model/moohan_T_shirt.glb', function (gltf) {
             // 상의 메쉬 식별자 (Blender에서 설정한 이름과 동일해야 함)
             const shirtMeshName = 'customize';
+            // const bodyMesh = 'body';
     
             gltf.scene.traverse(function (child) {
                 if (child.isMesh && child.name === shirtMeshName) {
@@ -78,6 +79,7 @@ window.onload = function init() {
                     //scene.add(gltf.scene);
                     //animate();
                 }
+
             }, undefined, function (error) {
                 console.error(error);
             });
