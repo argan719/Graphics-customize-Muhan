@@ -226,12 +226,47 @@ window.onload = function init() {
     loader.load('./model/moohan_animation.glb', function (gltf) {
       const newModel = gltf.scene;
 
-      newModel.lookAt(new THREE.Vector3(25, 0, 30));
+      // 모델이 로드되었는지와 애니메이션이 있는지 확인
+      if (gltf.animations && gltf.animations.length > 0) {
+        // AnimationMixer 생성
+        const mixer = new THREE.AnimationMixer(newModel);
 
-      scene.add(newModel); // Add the new model to the scene
+        // AnimationClip 추출 (첫 번째 애니메이션을 사용한다고 가정)
+        const clip = gltf.animations[0];
 
-      currentModel = newModel; // Update the current model reference
-      modelLoaded = true;
+        // AnimationAction 생성
+        const action = mixer.clipAction(clip);
+
+        // AnimationAction 재생
+        action.play();
+
+        // 모델이 특정 방향을 보도록 설정
+        newModel.lookAt(new THREE.Vector3(25, 0, 30));
+
+        // 새 모델을 장면에 추가
+        scene.add(newModel);
+        gltf.scene.position.set(20, -210, 0);
+
+        // 현재 모델 참조 및 모델 로드 상태 업데이트
+        currentModel = newModel;
+        modelLoaded = true;
+
+        // Animation 업데이트 함수 정의
+        const animate = () => {
+          requestAnimationFrame(animate);
+
+          // AnimationMixer 업데이트
+          mixer.update(0.01); // 시간 간격을 조절하여 애니메이션 속도 조절
+
+          // 렌더링
+          renderer.render(scene, camera);
+        };
+
+        // 애니메이션 시작
+        animate();
+      } else {
+        console.error('No animations found in the loaded model.');
+      }
     });
   }
 
