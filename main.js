@@ -60,7 +60,7 @@ window.onload = function init() {
             currentModel = null;
             modelLoaded = false;
         }
-        loader.load('./model/moohan_T_shirt.glb', function (gltf) {
+        loader.load('./model/moohan_fisrt_tshirt_two.glb', function (gltf) {
             // 상의 메쉬 식별자 (Blender에서 설정한 이름과 동일해야 함)
             const shirtMeshName = 'customize';
             // const bodyMesh = 'body';
@@ -240,6 +240,24 @@ window.onload = function init() {
     });
 
 
+
+    // Add color selection button event
+    colorButton.addEventListener('click', function () {
+        colorPicker.click();
+    });
+
+    // Apply selected color to the T-shirt material
+    colorPicker.addEventListener('input', function (event) {
+        const selectedColor = event.target.value;
+
+        if (shirtMesh) {
+            // Create a new material with the specified color
+            const newMaterial = new THREE.MeshBasicMaterial({ color: new THREE.Color(selectedColor) });
+        
+            // Replace the current material on the shirt mesh
+            shirtMesh.material = newMaterial;
+        }
+    });
 
 
     // 이미지 업로드 이벤트 핸들러
