@@ -92,6 +92,7 @@ window.onload = function init() {
 
 
 
+
     // 버튼 클릭 시 다른 무한이 모델 업로드
     function loadHeartGlasses() {
         if (currentModel) {
@@ -101,7 +102,12 @@ window.onload = function init() {
         }
         loader.load('./model/moohan_heart_glasses.glb', function (gltf) {
             const newModel = gltf.scene;
+
+            newModel.lookAt(new THREE.Vector3(25, 0, 30));
+
             scene.add(newModel); // Add the new model to the scene
+            gltf.scene.position.set(20, -210, 0); 
+
             currentModel = newModel; // Update the current model reference
             modelLoaded = true;
         });
@@ -116,9 +122,14 @@ window.onload = function init() {
         }
         loader.load('./model/moohan_protection_glasses.glb', function (gltf) {
             const newModel = gltf.scene;
+
+            newModel.lookAt(new THREE.Vector3(25, 0, 30));
+
             scene.add(newModel); // Add the new model to the scene
+            gltf.scene.position.set(20, -210, 0); 
+
             currentModel = newModel; // Update the current model reference
-            modelLoaded = true; // Set the model loaded flag
+            modelLoaded = true;
             
         });
     }
@@ -131,9 +142,14 @@ window.onload = function init() {
         }
         loader.load('./model/moohan_lab_coat.glb', function (gltf) {
             const newModel = gltf.scene;
+
+            newModel.lookAt(new THREE.Vector3(25, 0, 30));
+
             scene.add(newModel); // Add the new model to the scene
+            gltf.scene.position.set(20, -210, 0); 
+
             currentModel = newModel; // Update the current model reference
-            modelLoaded = true; // Set the model loaded flag
+            modelLoaded = true;
             
         });
     }
@@ -146,9 +162,14 @@ window.onload = function init() {
         }
         loader.load('./model/moohan_sweater.glb', function (gltf) {
             const newModel = gltf.scene;
+
+            newModel.lookAt(new THREE.Vector3(25, 0, 30));
+
             scene.add(newModel); // Add the new model to the scene
+            gltf.scene.position.set(20, -210, 0); 
+
             currentModel = newModel; // Update the current model reference
-            modelLoaded = true; // Set the model loaded flag
+            modelLoaded = true;
             
         });
     }
@@ -161,9 +182,14 @@ window.onload = function init() {
         }
         loader.load('./model/moohan_Varsity_jacket.glb', function (gltf) {
             const newModel = gltf.scene;
+
+            newModel.lookAt(new THREE.Vector3(25, 0, 30));
+
             scene.add(newModel); // Add the new model to the scene
+            gltf.scene.position.set(20, -220, 0); 
+
             currentModel = newModel; // Update the current model reference
-            modelLoaded = true; // Set the model loaded flag
+            modelLoaded = true;
             
         });
     }
@@ -176,9 +202,14 @@ window.onload = function init() {
         }
         loader.load('./model/moohan_wizard_hat.glb', function (gltf) {
             const newModel = gltf.scene;
+
+            newModel.lookAt(new THREE.Vector3(25, 0, 30));
+
             scene.add(newModel); // Add the new model to the scene
+            gltf.scene.position.set(20, -200, 0); 
+
             currentModel = newModel; // Update the current model reference
-            modelLoaded = true; // Set the model loaded flag
+            modelLoaded = true;
             
         });
     }
@@ -191,9 +222,14 @@ window.onload = function init() {
         }
         loader.load('./model/moohan_xmas_hat.glb', function (gltf) {
             const newModel = gltf.scene;
+
+            newModel.lookAt(new THREE.Vector3(25, 0, 30));
+
             scene.add(newModel); // Add the new model to the scene
+            gltf.scene.position.set(20, -210, 0); 
+
             currentModel = newModel; // Update the current model reference
-            modelLoaded = true; // Set the model loaded flag
+            modelLoaded = true;
             
         });
     }
