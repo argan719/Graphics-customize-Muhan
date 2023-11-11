@@ -226,6 +226,9 @@ window.onload = function init() {
     loader.load('./model/moohan_animation.glb', function (gltf) {
       const newModel = gltf.scene;
 
+      // 애니메이션 모델 크기가 작아 4배 늘림
+      newModel.scale.set(4, 4, 4);
+
       // 모델이 로드되었는지와 애니메이션이 있는지 확인
       if (gltf.animations && gltf.animations.length > 0) {
         // AnimationMixer 생성
